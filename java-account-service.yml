@@ -1,24 +1,46 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
 server:
   port: 8084
 spring:
   application:
     name: java-account-service
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+    password: Honda1997
+    url: jdbc:oracle:thin:@//aa-database.ckzkitpjrvtz.us-east-2.rds.amazonaws.com:1521/ORCL
+    username: shivam
   jpa:
-    properties:
-      hibernate:
-        show-sql: true
-        format-sql: true
-        ddl-auto: update
-  jackson:
-    serialization:
-      fail-on-empty-beans: false
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+  main:
+    banner-mode: 'off'
+#   datasource:
+#     url: jdbc:h2:mem:testdb
+#     driver-class-name: org.h2.Driver
+#   h2:
+#     console:
+#       enabled: true
+#       path: /h2-console
+#   jpa:
+#     properties:
+#       hibernate:
+#         show-sql: true
+#         format-sql: true
+#         ddl-auto: update
+#   jackson:
+#     serialization:
+#       fail-on-empty-beans: false
  
 eureka:
   client:
