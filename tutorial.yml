@@ -1,0 +1,26 @@
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n'
+server:
+  port: 6001	
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+    password: Honda1997
+    url: jdbc:oracle:thin:@//aa-database.ckzkitpjrvtz.us-east-2.rds.amazonaws.com:1521/ORCL
+    username: shivam
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  main:
+    banner-mode: 'off'
+ 
